@@ -1,0 +1,119 @@
+﻿<Window x:Class="LibraryApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LibraryApp"
+        mc:Ignorable="d"
+        Title="Library" Height="800" Width="1050" Background="White" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" AllowsTransparency="True" WindowStyle="None">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="170"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="220"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Background="#134187" Grid.Column="0" Grid.Row="0">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="35"/>
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+
+                <StackPanel Grid.Row="0">
+                    <DockPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                        <Image  Source="../images/icon/person.png" Height="24" Width="24"/>
+                        <Label Content="Library" Foreground="White" FontWeight="Bold" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+                    </DockPanel>
+                </StackPanel>
+
+                <StackPanel Grid.Row="1">
+                    <DockPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                        <Image  Margin="10" >
+                            <Image.Style>
+                                <Style TargetType="Image">
+                                    <Setter Property="Source" Value="../images/icon/book.png"/>
+                                    <Setter Property="Height" Value="auto"/>
+                                    <Setter Property="Width" Value="100"/>
+                                    <Style.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Source" Value="../images/icon/bookscollor.png"/>
+                                            <Setter Property="Width" Value="105"/>
+                                        </Trigger>
+                                    </Style.Triggers>
+
+                                </Style>
+                            </Image.Style>
+                        </Image>
+
+                    </DockPanel>
+                </StackPanel>
+
+
+            </Grid>
+        </StackPanel>
+        <StackPanel Background="#134187" Grid.Column="1" Grid.Row="0">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="35"/>
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <DockPanel Width="35" HorizontalAlignment="Right">
+                    <Button x:Name="BtnClose" BorderBrush="#134187" Background="#134187"  Click="BtnClose_OnClick">
+                        <Image  Source="../images/icon/close.png"></Image>
+                    </Button>
+                </DockPanel>
+            </Grid>
+        </StackPanel>
+
+        <!--Menu-->
+        <Grid Grid.Column="0" Grid.Row="1">
+            <ListView x:Name="ListViewMenu"  Background="#134187"  SelectionChanged="ListViewMenu_SelectionChanged">
+                <ListViewItem x:Name="ItemHome" Height="60"  Width="215" VerticalAlignment="Center" HorizontalAlignment="Left">
+                    <StackPanel Orientation="Horizontal" >
+                        <Image Source="../images/icon/homepage.png"></Image>
+                        <TextBlock FontSize="16" 
+                                   FontWeight="Bold" 
+                                   Foreground="White"
+                                   Text="Home" VerticalAlignment="Center" Margin="20 10"/>
+                    </StackPanel>
+                </ListViewItem>
+                <ListViewItem x:Name="ItemBooks" Height="60" Width="215" VerticalAlignment="Center" HorizontalAlignment="Left"> 
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="../images/icon/books.png"></Image>
+                        <TextBlock FontSize="16" 
+                                   FontWeight="Bold" 
+                                   Foreground="White"
+                                   Text="Book" VerticalAlignment="Center" Margin="20 10"/>
+                    </StackPanel>
+                </ListViewItem>
+                <ListViewItem x:Name="ItemUsers" Height="60" Width="215" VerticalAlignment="Center" HorizontalAlignment="Left">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="../images/icon/user.png"></Image>
+                        <TextBlock FontSize="16" 
+                                   FontWeight="Bold" 
+                                   Foreground="White"
+                                   Text="Users" VerticalAlignment="Center" Margin="20 10"/>
+                    </StackPanel>
+                </ListViewItem>
+                <ListViewItem x:Name="ItemReservations" Height="60" Width="215" VerticalAlignment="Center" HorizontalAlignment="Left">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="../images/icon/reserved.png"></Image>
+                        <TextBlock FontSize="16" 
+                                   FontWeight="Bold" 
+                                   Foreground="White"
+                                   Text="Reservations" 
+                                   VerticalAlignment="Center" 
+                                   Margin="20 10"/>
+                    </StackPanel>
+                </ListViewItem>
+            </ListView>
+
+        </Grid>
+        <Grid  x:Name="GridMain"  Grid.Column="1" HorizontalAlignment="Left" Height="620" Margin="0,0.4,0,0" Grid.Row="1" VerticalAlignment="Top" Width="820"/>
+
+    </Grid>
+</Window>
